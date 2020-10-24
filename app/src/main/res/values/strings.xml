@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Test</string>
+    <string name="drop_Table">DROP TABLE IF EXSISTS</string>
+    <string name="drop_table">DROP TABLE IF EXISTS</string>
+
+    <string-array name="expense_list">
+        <item>Emergency</item>
+        <item>Health/Medicines</item>
+        <item>Food/Groceries</item>
+        <item>Rent/Bills</item>
+        <item>Purchaces</item>
+        <item>Luxury Items</item>
+    </string-array>
+
+
+</resources>
