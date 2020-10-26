@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:text="akfsdssvs"
+        android:id="@+id/Expsrc_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/Expval_list"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:text="fasfasfsgfdg"
+        android:id="@+id/Expval_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="@id/ExpPrio_list"
+        app:layout_constraintLeft_toRightOf="@id/Expsrc_list"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+    <TextView
+        android:text="gasdgagsdf"
+        android:id="@+id/ExpPrio_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/Expval_list"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>
