@@ -58,6 +58,40 @@ public class Expenses_Activity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
+            
+            setContentView(R.layout.activity_main);
+        String programming_languages[] = { "Pyhton", "C", "C++", "Java", "C#", "JavaScript",
+                "XML", "HTML5", "Operating Systems", "Android", "Windows",
+                "PHP", "Mongodb", "SQL" };
+ 
+        listview = (ListView) findViewById(R.id.listview);
+        Search = (EditText) findViewById(R.id.input);
+ 
+        adapter = new ArrayAdapter<String>(this, R.layout.item, R.id.item,
+                programming_languages);
+        listview.setAdapter(adapter);
+ 
+        Search.addTextChangedListener(new TextWatcher() {
+ 
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2,
+                    int arg3) {
+    
+                MainActivity.this.adapter.getFilter().filter(cs);
+            }
+ 
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1,
+                    int arg2, int arg3) {
+ 
+            }
+ 
+            @Override
+            public void afterTextChanged(Editable arg0) {
+       
+            }
+        });
+    }
         });
 
         addDatabut.setOnClickListener(new View.OnClickListener() {
