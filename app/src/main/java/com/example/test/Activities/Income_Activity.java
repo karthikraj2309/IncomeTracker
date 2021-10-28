@@ -55,13 +55,38 @@ public class Income_Activity extends AppCompatActivity {
             }
         });
 
+         private EditText edittext;
+    private Button clear_buuton;
+ 
+    public Clearable_Edit_Text(Context context) {
+        super(context);
+ 
+        String inflatorservice = Context.LAYOUT_INFLATER_SERVICE;
+        LayoutInflater li;
+ 
+        li = (LayoutInflater) getContext().getSystemService(inflatorservice);
 
-
-
+        li.inflate(R.layout.clerable_edit_text, this, true);
+ 
+        edittext = (EditText) findViewById(R.id.Edittext);
+        clear_buuton = (Button) findViewById(R.id.button1);
+        
+        hookbutton();
 
     }
 
-
+    private void hookbutton(){
+ 
+        clear_buuton.setOnClickListener(new View.OnClickListener() {
+ 
+            @Override
+            public void onClick(View v) {
+                edittext.setText("");
+                Log.v("clearButton", "clicked");
+ 
+            }
+        });
+    }
 
 
 
