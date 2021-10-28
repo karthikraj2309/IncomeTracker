@@ -71,4 +71,57 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db=this.getWritableDatabase();
         return db.delete(Table_Name,"ID = ?",new String[] { id });
     }
+    
+    private static final int DATABASE_VERSION = 1;
+ 
+    private static final String DATABASE_NAME = "Value";
+ 
+    private static final String TABLE_Languages = "Values";
+ 
+    private static final String KEY_ID = "id";
+    private static final String KEY_NAME = "value";
+ 
+    public DataBaseHandler(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+ 
+    // Creating Tables
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String CREATE_CONTACTS_TABLE;
+ 
+        CREATE_CONTACTS_TABLE = "create table " + TABLE_Languages + "("
+                + KEY_ID + " integer primary key autoincrement, " + KEY_NAME
+                + " text not null);";
+        db.execSQL(CREATE_CONTACTS_TABLE);
+    }
+ 
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop older table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_Languages);
+        onCreate(db);
+    }
+ 
+    public void add(Values lang) {
+        SQLiteDatabase db = this.getWritableDatabase();
+ 
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, lang.getValue());
+ 
+        db.insert(TABLE_Languages, null, values);
+        db.close(); // Closing database connection
+    }
+ 
+    // Updating single record
+    public int update(Values value) {
+        SQLiteDatabase db = this.getWritableDatabase();
+ 
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME, value.getValue());
+ 
+    
+        return db.update(TABLE_Languages, values, KEY_ID + " = ?",
+                new String[] { String.valueOf(value.getId()) });
+    }
 }
