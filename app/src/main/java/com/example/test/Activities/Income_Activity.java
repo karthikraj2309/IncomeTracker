@@ -70,10 +70,23 @@ public class Income_Activity extends AppCompatActivity {
  
         edittext = (EditText) findViewById(R.id.Edittext);
         clear_buuton = (Button) findViewById(R.id.button1);
+        
+        hookbutton();
 
     }
 
-
+    private void hookbutton(){
+ 
+        clear_buuton.setOnClickListener(new View.OnClickListener() {
+ 
+            @Override
+            public void onClick(View v) {
+                edittext.setText("");
+                Log.v("clearButton", "clicked");
+ 
+            }
+        });
+    }
 
 
 
