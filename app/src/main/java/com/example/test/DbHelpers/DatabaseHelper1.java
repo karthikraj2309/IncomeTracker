@@ -71,4 +71,41 @@ public class DatabaseHelper1 extends SQLiteOpenHelper {
         SQLiteDatabase db=this.getWritableDatabase();
         return db.delete(Table_Name,"ID = ?",new String[] { id });
     }
+    
+     final DatabaseHandler db = new DatabaseHandler(this);
+ 
+        Button but1 = (Button) findViewById(R.id.insert);
+ 
+        but1.setOnClickListener(new View.OnClickListener() {
+ 
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                // Inserting known Languages
+                Log.d("Insert: ", "Inserting ..");
+                db.add(new values("value1"));
+                db.add(new values("value2"));
+                db.add(new values("value3"));
+                db.add(new values("value4"));
+                Log.d("Insert", "DataBase Successfully Updated");
+            }
+        });
+ 
+        Button but2 = (Button) findViewById(R.id.Read);
+ 
+        but2.setOnClickListener(new View.OnClickListener() {
+ 
+            @Override
+            public void onClick(View v) {
+     
+                Log.d("Reading: ", "Reading all data..");
+                List<values> val = db.getAllvalues();
+ 
+                for (values cn : val) {
+                    String log = "Id: " + cn.getId() + " ,values: "
+                            + cn.getValue();
+                    Log.d("value: ", log);
+                }
+            }
+        });
 }
